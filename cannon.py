@@ -1,10 +1,9 @@
-#me encanta programar es mi passion
 from random import randrange
 from turtle import *
 from freegames import vector
 
 ball = vector(-200, -200)
-speed = vector(0, 0)
+speed = vector(10, 10)
 targets = []
 
 def tap(x, y):
@@ -12,8 +11,8 @@ def tap(x, y):
     if not inside(ball):
         ball.x = -199
         ball.y = -199
-        speed.x = (x + 200) / 25
-        speed.y = (y + 200) / 25
+        speed.x = (x + 200) / 5
+        speed.y = (y + 200) / 5
 
 def inside(xy):
     "Return True if xy within screen."
@@ -41,10 +40,10 @@ def move():
         targets.append(target)
 
     for target in targets:
-        target.x -= 0.5
+        target.x -= 1.5
 
     if inside(ball):
-        speed.y -= 0.35
+        speed.y -= 0.7
         ball.move(speed)
 
     dupe = targets.copy()
